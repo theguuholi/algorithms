@@ -3,7 +3,7 @@
 ### Quick Problem Shortcuts
 
 - [Reverse String](#-reverse-string)
-- [Square of a Sorted Array](#-square-of-a-sorted-array)
+- [Squares of a Sorted Array](#-squares-of-a-sorted-array)
 
 ---
 
