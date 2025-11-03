@@ -4,6 +4,7 @@
 
 - [Reverse String](#-reverse-string)
 - [Squares of a Sorted Array](#-squares-of-a-sorted-array)
+- [Longest Subarray With Sum ≤ k Sliding Window](#-longest-subarray-with-sum--k-sliding-window)
 
 ---
 
@@ -108,3 +109,37 @@ end
 ---
 
 🌟 *Square, then sort — efficient transformation for sorted arrays!*
+
+
+
+## 🔗 Longest Subarray With Sum ≤ k Sliding Window
+
+**Problem:**  
+Given an array of positive integers `nums` and an integer `k`, find the length of the longest subarray whose sum is less than or equal to `k`.
+
+**Example:**  
+`nums = [3, 1, 2, 7, 4, 2, 1, 1, 5]`, `k = 8`  
+**Answer:** `4`
+
+---
+
+**Java Solution**
+```java
+public int findLength(int[] nums, int k) {
+    int left = 0;
+    int curr = 0; // curr is the current sum of the window
+    int ans = 0;
+
+    for (int right = 0; right < nums.length; right++) {
+        curr += nums[right];
+        while (curr > k) {
+            curr -= nums[left];
+            left++;
+        }
+
+        ans = Math.max(ans, right - left + 1);
+    }
+
+    return ans;
+}
+```
