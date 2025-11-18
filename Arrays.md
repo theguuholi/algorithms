@@ -5,6 +5,7 @@
 - [Reverse String](#-reverse-string)
 - [Squares of a Sorted Array](#-squares-of-a-sorted-array)
 - [Longest Subarray With Sum ≤ k Sliding Window](#-longest-subarray-with-sum--k-sliding-window)
+- [Maximum Average Subarray I](#-Maximum-Average-Subarray-I)
 
 ---
 
@@ -143,3 +144,51 @@ public int findLength(int[] nums, int k) {
     return ans;
 }
 ```
+
+
+
+---
+
+# Maximum Average Subarray I
+
+
+**Examples:**
+
+- **Example 1:**
+  - **Input:** `nums = [1, 12, -5, -6, 50, 3]`, `k = 4`
+  - **Output:** `12.75000`
+  - **Explanation:**  
+    The maximum average is calculated over the subarray `[12, -5, -6, 50]`,  
+    so: (12 - 5 - 6 + 50) / 4 = **51 / 4 = 12.75**
+
+- **Example 2:**
+  - **Input:** `nums = [5]`, `k = 1`
+  - **Output:** `5.00000`
+
+---
+
+**Constraints:**
+
+- `n == nums.length`
+- `1 <= k <= n <= 10^5`
+- `-10^4 <= nums[i] <= 10^4`
+---
+
+**Java Solution**
+```java
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+        int[] sum = new int[nums.length];
+        sum[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) 
+            sum[i] = sum[i - 1] + nums[i];
+        double res = sum[k - 1] * 1.0 / k;
+        for(int i = k; i < nums.length; i++) {
+            res = Math.max(res, (sum[i] - sum[i - k]) * 1.0 / k);
+        }
+
+    return res;
+    }
+}
+```
+
