@@ -1,0 +1,9 @@
+# Algorithms Repository - General ignores
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
