@@ -49,7 +49,7 @@ defmodule Algorithms.Arrays.MaximumAverageSubarray do
     prefix_sums = build_prefix_sums(nums, [0])
 
     # Find maximum average
-    max_avg = find_max_from_prefix(prefix_sums, k, 1, (Enum.at(prefix_sums, k) / k))
+    max_avg = find_max_from_prefix(prefix_sums, k, 1, Enum.at(prefix_sums, k) / k)
 
     max_avg
   end

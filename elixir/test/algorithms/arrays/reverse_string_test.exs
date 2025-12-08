@@ -16,11 +16,11 @@ defmodule Algorithms.Arrays.ReverseStringTest do
 
   test "palindrome remains same" do
     assert ReverseString.reverse_string(["r", "a", "c", "e", "c", "a", "r"]) ==
-           ["r", "a", "c", "e", "c", "a", "r"]
+             ["r", "a", "c", "e", "c", "a", "r"]
   end
 
   test "manual implementation works" do
     assert ReverseString.reverse_string_manual(["h", "e", "l", "l", "o"]) ==
-           ["o", "l", "l", "e", "h"]
+             ["o", "l", "l", "e", "h"]
   end
 end

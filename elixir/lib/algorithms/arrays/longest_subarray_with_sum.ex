@@ -31,7 +31,8 @@ defmodule Algorithms.Arrays.LongestSubarrayWithSum do
     new_curr = curr + head
 
     # Shrink window if sum exceeds k
-    {new_left, final_curr} = shrink_window(nums_list_from_left(left, [head | tail]), new_curr, k, left)
+    {new_left, final_curr} =
+      shrink_window(nums_list_from_left(left, [head | tail]), new_curr, k, left)
 
     # Calculate new answer
     new_ans = max(ans, right - new_left + 1)
